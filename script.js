@@ -1,17 +1,17 @@
- //   Function to get Location. Returns a promise that resolves into (lat, long)
+ //   Function to get Location. Returns a promise that resolves into {lat, long}
       function getLocation() {
-        // Creates a new promise
+        // Create a new promise
         let locationPromise = new Promise((resolve, reject) => {
-          // Accesses the current position of the user:
+          // Access the current position of the user:
           navigator.geolocation.getCurrentPosition((pos) => {
-            // Grabs the lat and long
+            // Grab the lat and long
             let long = pos.coords.longitude;
             let lat = pos.coords.latitude;
-            // Resolves the promise with an object containing lat and long
+            // If you can get those values: resolve with an object or reject if not
             resolve({ lat, long });
           }, reject);
         });
-        //   returns the promise
+        //   return the promise
         return locationPromise;
       }
 
